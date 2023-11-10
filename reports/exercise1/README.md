@@ -45,7 +45,9 @@ cd linux
 make LLVM=1 rustavailable
 rustup override set $(scripts/min-tool-version.sh rustc)
 rustup component add rust-src
-cargo install --locked --version $(scripts/min-tool-version.sh bindgen) bindgen-cli
+
+## Rust-for-Linux/linux 官方 bindgen 版本较新，需将命令改成 bindgen-cli
+cargo install --locked --version $(scripts/min-tool-version.sh bindgen) bindgen
 ```
 
 > 小技巧：若本地已经安装过 `bindgen`，在执行 `make LLVM=1 rustavailable` 会提示版本有差异，可以使用 `--force` 命令强制安装当前 `linux` 源码需要用到的版本。
