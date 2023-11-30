@@ -459,7 +459,7 @@ pub struct FilesystemStream {
 
 > 文件位于 `puzzlefs-lib/src/builder.rs`
 
-* `walker``: 用于遍历文件系统或目录结构。
+* `walker`: 用于遍历文件系统或目录结构。
 * `add_entry`, `serialize_manifest`, `serialize_metadata`: 与将文件系统或目录结构的信息添加到某个数据结构或序列化有关。
 * `process_chunks<C>`, `build_delta<C>`: 与处理文件或数据块的压缩相关，其中， `C` 代表某种压缩算法。
 * `lookup_existing`: 用于查找或查询文件系统中的现有文件或目录。
