@@ -448,7 +448,7 @@ pub struct FilesystemStream {
 
 2. `FilesystemStream` 结构体用于链接多个 `Reader`，类似于 `std::io::Read` trait 的 `chain` 方法和 `multi_reader` 库，该做法的目的是方便按顺序读取多个文件。它包含两个字段：
   - `reader_chain`：一个 `Vec<ReaderLink>` 类型的字段，用于存储多个 `ReaderLink`，实现类似于链式文件读取的操作，例如，在读取一个文件之后自动切换到下一个文件。这种设计可以方便地实现流水线式的文件处理任务。
-  - `current_reader`：一个 `Option<std::fs::File>` 类型的字段，表示当前正在使用的读者。
+  - `current_reader`：一个 `Option<std::fs::File>` 类型的字段，表示当前正在使用的`reader`。
 
 3. 两个结构体关系如下图所述：
 
