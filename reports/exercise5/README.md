@@ -366,9 +366,9 @@ pub struct BlobRef {
 
 结构体包含以下成员：
 
-1. `digest`：一个字节数组（`[u8; SHA256_BLOCK_SIZE]`），用于存储 BLOB 的哈希值。SHA256 是一种加密哈希算法，用于生成一个固定长度的哈希值。这个字节数组的长度为 SHA256 块大小，通常为 64 字节。
-2. `offset`：一个 `u64` 类型的成员，表示 BLOB 在文件系统中的偏移量。这个偏移量用于定位 BLOB 在文件系统中的位置。
-3. `compressed`：一个布尔值（`bool` 类型），表示 BLOB 是否已压缩。如果为 `true`，则表示 BLOB 已压缩；如果为 `false`，则表示 BLOB 未压缩。
+1. `digest`：`[u8; SHA256_BLOCK_SIZE]`类型，用于存储 BLOB 的哈希值。SHA256 是一种加密哈希算法，用于生成一个固定长度的哈希值。这个字节数组的长度为 SHA256 块大小，通常为 64 字节。
+2. `offset`：`u64` 类型，表示 BLOB 在文件系统中的偏移量。这个偏移量用于定位 BLOB 在文件系统中的位置。
+3. `compressed`：`bool` 类型，表示 BLOB 是否已压缩。如果为 `true`，则表示 BLOB 已压缩；如果为 `false`，则表示 BLOB 未压缩。
 
 #### inode（节点）的结构体定义
 
@@ -386,12 +386,12 @@ pub struct Inode {
 > 用于表示文件系统中的 inode，包含了识别和描述 inode 所需的基本信息。这有助于管理和操作文件系统中的文件和目录。
 
 结构体包含以下成员：
-1. `ino`：一个 `Ino` 类型的成员，表示 inode 的唯一标识符。inode 是文件系统中的一个基本概念，用于标识文件和目录。
-2. `mode`：一个 `InodeMode` 类型的成员，表示 inode 的模式。`InodeMode` 可能是一个枚举类型，用于表示 inode 是文件还是目录，以及文件或目录的权限设置。
-3. `uid`：一个 `u32` 类型的成员，表示 inode 所属的用户 ID。用户 ID 用于识别文件或目录的所有者。
-4. `gid`：一个 `u32` 类型的成员，表示 inode 所属的组 ID。组 ID 用于识别文件或目录的所有者所属的组。
-5. `permissions`：一个 `u16` 类型的成员，表示 inode 的权限。这些权限通常包括读、写和执行权限，用于控制用户和组对文件或目录的访问。
-6. `additional`：一个 `Option<InodeAdditional>` 类型的成员，表示额外的 inode 信息。`InodeAdditional` 可能是一个包含更多详细信息的结构体或类。这个选项值为 `None` 时，表示没有额外的 inode 信息。
+1. `ino`：`Ino` 类型，表示 inode 的唯一标识符。inode 是文件系统中的一个基本概念，用于标识文件和目录。
+2. `mode`：`InodeMode` 类型，表示 inode 的模式。`InodeMode` 可能是一个枚举类型，用于表示 inode 是文件还是目录，以及文件或目录的权限设置。
+3. `uid`：`u32` 类型，表示 inode 所属的用户 ID。用户 ID 用于识别文件或目录的所有者。
+4. `gid`：`u32` 类型，表示 inode 所属的组 ID。组 ID 用于识别文件或目录的所有者所属的组。
+5. `permissions`：`u16` 类型，表示 inode 的权限。这些权限通常包括读、写和执行权限，用于控制用户和组对文件或目录的访问。
+6. `additional`：`Option<InodeAdditional>` 类型，表示额外的 inode 信息。`InodeAdditional` 可能是一个包含更多详细信息的结构体或类。这个选项值为 `None` 时，表示没有额外的 inode 信息。
 
 
 #### 元数据 BLOB（MetadataBlob）的结构体定义
@@ -409,7 +409,7 @@ pub struct MetadataBlob {
 
 结构体只有一个成员 `reader`：
 
-这是一个 `message::TypedReader` 类型的成员，用于读取和解析元数据 BLOB。`TypedReader` 是 `Cap'n Proto` 序列化库中的一个类型，用于读取和处理特定类型的数据。
+这是一个 `message::TypedReader` 类型，用于读取和解析元数据 BLOB。`TypedReader` 是 `Cap'n Proto` 序列化库中的一个类型，用于读取和处理特定类型的数据。
 
 `::capnp::serialize::BufferSegments<Mmap>` 是一个泛型类型，表示用于存储元数据的内存映射（`Mmap`）缓冲区。`Mmap` 是一种内存映射文件的技术，可以将文件内容映射到内存中，以便更快地访问和处理文件数据。
 
