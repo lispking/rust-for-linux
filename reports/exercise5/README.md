@@ -328,7 +328,7 @@ type puzzlefs_blob {
 }
 ```
 
-> 下面通过一张 UML 图来解读 `format/types.rs` 文件系统组件的关系
+> 下面通过一张 UML 图来解读 Puzzle 文件系统格式里相关组件的关系，源码文件位于 `format/types.rs` 
 
 ![02-format-types](images/02-format-types.png)
 
